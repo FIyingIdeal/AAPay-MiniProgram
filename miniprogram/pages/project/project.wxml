@@ -1,0 +1,83 @@
+<!--pages/project/project.wxml-->
+<view>
+  <!-- 创建项目button -->
+  <view class="head-bg">
+    <view class="head-bubble">
+      <!-- 头像 -->
+
+      <!-- 问候语 -->
+      <text>{{project.name}}</text>
+    </view>
+  </view>
+
+  <!-- 项目列表 -->
+  <view wx:for="{{projects}}" wx:key="id" wx:for-item="project">
+    <view class="project-list">
+      <view class="project">
+        <view class="project-info">
+          <view class="project-icon-box">
+            <image class="project-icon" src="../../images/user.png"></image>
+          </view>
+          <view class="project-word-info">
+            <view class="project-basics">
+              <view class="project-title-box">
+                <text class="project-title">{{project.name}}</text>
+              </view>
+              <view class="project-type-time">
+                <view class="project-type">
+                  <text>{{project.type}}</text>
+                </view>
+                <view class="project-time">
+                  <text>{{project.beginDate}} ~ {{project.endDate}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="project-remark">
+              <text>{{project.description}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="project-users">
+          <image class="pu-icon" src="../../images/user.png" />
+          <image class="pu-icon" src="../../images/user.png" />
+          <image class="pu-icon" src="../../images/user.png" />
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class="project">
+      <view class="project-info">
+        <view class="project-icon-box">
+          <image class="project-icon" src="../../images/user.png"></image>
+        </view>
+        <view class="project-word-info">
+          <view class="project-basics">
+            <view class="project-title-box">
+              <text class="project-title">项目名称</text>
+            </view>
+            <view class="project-type-time">
+              <view class="project-type">
+                <text>旅游</text>
+              </view>
+              <view class="project-time">
+                <text>2023/04/28 ~ 2023/05/08</text>
+              </view>
+            </view>
+          </view>
+          <view class="project-remark">
+            <text>今天，我们从成都出发，沿着川西环线一路前行，去浏览川西的美景~</text>
+          </view>
+        </view>
+      </view>
+      
+      <view class="project-users">
+        <image class="pu-icon" src="../../images/user.png"/>
+        <image class="pu-icon" src="../../images/user.png"/>
+        <image class="pu-icon" src="../../images/user.png"/>
+      </view>
+    </view> -->
+
+
+  </view>
+</view>
