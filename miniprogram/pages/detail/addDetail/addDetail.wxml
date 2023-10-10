@@ -1,0 +1,33 @@
+<!--pages/detail/addDetail.wxml-->
+<view class="add-detial-continer">
+  <view class="add-detail-form">
+    <view class="section-gap">
+      <view class="section-title">明细概述</view>
+      <input bindinput="bindNameInput" class="section-input" name="name" placeholder="明细概述" />
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">明细详述</view>
+      <input class="section-input" name="remark" placeholder="明细详述" />
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">明细类型</view>
+      <picker bindchange="bindDetailTypeChange" value="{{index}}" range="{{detailType}}" range-key="name">
+        <view class="picker">
+          当前选择：{{detailShow.typeName}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">明细金额</view>
+      <input class="section-input" name="amount" placeholder="明细金额" />
+    </view>
+
+    <view class="add-detail-btn-area">
+      <button class="add-detail-btn" type="primary" bindtap="submitAddDetail">保存</button>
+      <button class="add-detail-reset">重置</button>
+    </view>
+  </view>
+</view>

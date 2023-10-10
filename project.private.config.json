@@ -9,15 +9,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "",
-          "pathName": "pages/detail/detail",
+          "name": "添加详情",
+          "pathName": "pages/detail/addDetail/addDetail",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/logs/logs",
+          "pathName": "pages/detail/detail",
           "query": "",
           "launchMode": "default",
           "scene": null

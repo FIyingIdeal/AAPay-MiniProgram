@@ -1,19 +1,19 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/detail/detail",
-    "pages/project/project"
+    "pages/projects/projects",
+    "pages/detail/addDetail/addDetail",
+    "pages/projects/addProject/addProject"
   ],
+  "entryPagePath": "pages/projects/projects",
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "打平伙",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-
   "resolveAlias": {
     "@/*": "/*"
   }

@@ -4,7 +4,7 @@ interface UserPublicInfo {
   nickname: string;
 }
 
-interface ProjectResponse {
+interface UserProject {
   id: number;
   name: string;
   type: string;
@@ -14,7 +14,4 @@ interface ProjectResponse {
   users: UserPublicInfo[];
 }
 
-
-interface DetailRequest {
-  projectId: number
-}
+type GetUserProjectsData = UserProject[];
