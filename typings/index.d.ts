@@ -2,8 +2,12 @@
 
 interface IAppOption {
   globalData: {
+    token: string;
     userInfo?: WechatMiniprogram.UserInfo,
+    projects: UserProject[];
   }
+  login(): void,
+  getUserInfo(): void,
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
 }
 

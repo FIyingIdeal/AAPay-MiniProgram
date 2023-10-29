@@ -27,7 +27,7 @@
 
   <view class="detail-options">
     <view class="detail-add-option" bind:tap="toAddDetail">
-
+      <text>添加项目明细</text>
     </view>
   </view>
 

@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "",
+          "pathName": "pages/projects/projects",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "添加详情",
           "pathName": "pages/detail/addDetail/addDetail",
           "query": "",
@@ -18,13 +25,6 @@
         {
           "name": "",
           "pathName": "pages/detail/detail",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/project/project",
           "query": "",
           "launchMode": "default",
           "scene": null

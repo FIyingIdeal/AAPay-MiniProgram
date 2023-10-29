@@ -1,28 +1,66 @@
 <!--pages/detail/addDetail.wxml-->
 <view class="add-detial-continer">
   <view class="add-detail-form">
+  
     <view class="section-gap">
-      <view class="section-title">明细概述</view>
-      <input bindinput="bindNameInput" class="section-input" name="name" placeholder="明细概述" />
+      <view class="section-title">金额</view>
+      <input class="section-input" name="amount" placeholder="最多支持两位小数" />
     </view>
 
     <view class="section-gap">
-      <view class="section-title">明细详述</view>
-      <input class="section-input" name="remark" placeholder="明细详述" />
+      <view class="section-title">标题</view>
+      <view class="section-input">
+        <input bindinput="handleNameInput" name="name" placeholder="必填，最多20个字" />
+      </view>
     </view>
 
     <view class="section-gap">
-      <view class="section-title">明细类型</view>
-      <picker bindchange="bindDetailTypeChange" value="{{index}}" range="{{detailType}}" range-key="name">
+      <view class="section-title">描述</view>
+      <view class="section-input">
+        <input name="remark" placeholder="非必填，最多500字" />
+      </view>
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title"></view>
+      <view class="section-picker">
+        <picker bindchange="handleDetailTypeChange" value="{{index}}" range="{{detailTypeSelector}}" range-key="name">
+          <view class="picker">
+            类型 {{detailShow.typeName}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title"></view>
+      <view class="section-picker">
+        <picker header-text="费用产生日期" mode="date">
+          <view class="picker">
+            日期 {{}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title"></view>
+      <view class="section-picker">
+        <picker header-text="费用支付人">
+          <view class="picker">
+            支付人 {{}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">结算状态</view>
+      <picker header-text="费用结算状态" value="{{index}}" range="{{settleStatusSelector}}" range-key="name" bindchange="handleSettleStatusChange">
         <view class="picker">
-          当前选择：{{detailShow.typeName}}
+          当前选择：{{detailShow.settleStatusName}}
         </view>
       </picker>
-    </view>
-
-    <view class="section-gap">
-      <view class="section-title">明细金额</view>
-      <input class="section-input" name="amount" placeholder="明细金额" />
     </view>
 
     <view class="add-detail-btn-area">

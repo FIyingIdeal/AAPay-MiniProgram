@@ -6,7 +6,7 @@ interface DataType {
 }
 interface Custom {
   getUserProjects(): Promise<void>;
-  toProjectDetails(): void
+  toProjectDetails(e: WechatMiniprogram.BaseEvent<{}, { id: number }>): void
 }
 Page<DataType, Custom>({
 
@@ -38,13 +38,13 @@ Page<DataType, Custom>({
   },
 
   async getUserProjects() {
-    const data = await getUserProjects();
+    const data = await getUserProjects(1);
     this.setData({ projects: data });
   },
 
-  toProjectDetails() {
+  toProjectDetails(e) {
     wx.navigateTo({
-      url: '/pages/detail/detail'
+      url: `/pages/detail/detail?projectId=${e.currentTarget.dataset.id}`
     })
   }
 })

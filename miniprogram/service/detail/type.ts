@@ -11,6 +11,7 @@ interface SubmitAddDetailReq {
   remark: string;
   type: number;
   amount: number;
+  settleStatus: number;
   apportionType: number;
 }
 

@@ -3,7 +3,7 @@
   <!-- 项目列表 -->
   <view wx:for="{{projects}}" wx:key="id" wx:for-item="project">
     <view class="project-list">
-      <view class="project" bind:tap="toProjectDetails">
+      <view class="project" bind:tap="toProjectDetails" data-id="{{project.id}}">
         <view class="project-info">
           <view class="project-icon-box">
             <image class="project-icon" src="../../assets/images/user.png"></image>

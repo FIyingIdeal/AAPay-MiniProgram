@@ -15,3 +15,11 @@ interface UserProject {
 }
 
 type GetUserProjectsData = UserProject[];
+
+interface ProjectUser {
+  userId: number;
+  nickname: string;
+  avata?: string;
+}
+
+type GetProjectUsersData = ProjectUser[];

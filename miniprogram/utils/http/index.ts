@@ -6,9 +6,9 @@ interface Options<T, R> extends BaseRequestOptions {
 }
 
 const ENV_MAP = {
-  prod: 'http://localhost:8080/aapay',
-  test: 'http://localhost:8080/aapay',
-  dev: 'http://localhost:8080/aapay'
+  prod: 'http://192.168.31.165:8080/aapay',
+  test: 'http://192.168.31.165:8080/aapay',
+  dev: 'http://192.168.31.165:8080/aapay'
 }
 const host = ENV_MAP['dev'];
 
