@@ -1,2 +1,42 @@
 <!--pages/projects/addProject/addProject.wxml-->
-<text>pages/projects/addProject/addProject.wxml</text>
+<view class="add-project-continer">
+  <view class="add-project-form">
+  
+    <view class="section-gap">
+      <view class="section-title">项目名称</view>
+      <input class="section-input" name="name" placeholder="必填" />
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">项目描述</view>
+      <input class="section-input" name="description" placeholder="选填，最多500字" />
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">项目类型</view>
+      <view class="section-picker">
+        <picker bindchange="handleProjectTypeChange" value="{{index}}" range="{{defaultProjectTypes}}" range-key="name">
+          <view class="picker">
+             {{projectInfo.type}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="section-gap">
+      <view class="section-title">项目日期</view>
+      <view class="section-picker">
+        <picker header-text="费用产生日期" mode="date">
+          <view class="picker">
+             {{}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="add-project-btn-area">
+      <button class="add-project-btn" type="primary" bindtap="submitAddProjectDetail">保存</button>
+      <button class="add-project-reset">重置</button>
+    </view>
+  </view>
+</view>

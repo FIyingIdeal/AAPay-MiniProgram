@@ -37,4 +37,9 @@
     </view>
 
   </view>
+  <view class="projects-list-options">
+    <view class="projects-add-option" bind:tap="toAddProject">
+      <text>添加新项目</text>
+    </view>
+  </view>
 </view>

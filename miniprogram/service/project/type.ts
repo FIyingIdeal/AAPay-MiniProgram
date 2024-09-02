@@ -23,3 +23,12 @@ interface ProjectUser {
 }
 
 type GetProjectUsersData = ProjectUser[];
+
+// 新增项目请求入参
+interface SubmitAddProjectReq {
+  name: string;
+  type: string;
+  description?: string;
+  beginDate: string;
+  endDate: string;
+}

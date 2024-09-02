@@ -23,6 +23,10 @@ App<IAppOption>({
 
         this.getUserInfo();
       },
+      fail:(res) => {
+        console.log(res, 'fail');
+
+      }
     })
   },
 

@@ -1,1 +1,29 @@
 /* pages/projects/addProject/addProject.wxss */
+.add-project-continer {
+  display: flex;
+  flex-direction: column;
+
+  .section-gap {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+
+    .section-title {
+      margin-left: 10rpx;
+      margin-right: 15rpx;
+    }
+
+    .section-input {
+      flex: 1;
+      border-bottom: 1px solid rgb(201, 194, 194); /* 只保留下边的边框 */
+      margin-right: 15rpx;
+    }
+  }
+
+
+  .add-project-btn-area {
+    display: flex;
+    justify-content: space-between; /* 让子元素平分容器 */
+    align-items: flex-end; /* 将子元素对齐到底部 */
+  }
+}

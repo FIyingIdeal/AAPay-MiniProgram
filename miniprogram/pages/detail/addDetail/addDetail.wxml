@@ -1,5 +1,5 @@
 <!--pages/detail/addDetail.wxml-->
-<view class="add-detial-continer">
+<view class="add-detail-continer">
   <view class="add-detail-form">
   
     <view class="section-gap">

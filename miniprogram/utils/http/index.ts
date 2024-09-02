@@ -6,13 +6,13 @@ interface Options<T, R> extends BaseRequestOptions {
 }
 
 const ENV_MAP = {
-  prod: 'http://192.168.31.165:8080/aapay',
-  test: 'http://192.168.31.165:8080/aapay',
+  prod: 'http://192.168.31.166:8080/aapay',
+  test: 'http://192.168.31.166:8080/aapay',
   dev: 'http://192.168.31.165:8080/aapay'
 }
 const host = ENV_MAP['dev'];
 
-const aapayReqest =
+const aapayRequest =
   <T, R = unknown>(options: Options<T, BaseResponse<R>>): Promise<BaseResponse<R>> => {
     const { url: uri, success, fail, ...restOptions } = options;
     const url = `${host}${uri}`;
@@ -42,5 +42,5 @@ const aapayReqest =
     })
   }
 
-export const http = aapayReqest;
-export default aapayReqest;
+export const http = aapayRequest;
+export default aapayRequest;

@@ -28,3 +28,18 @@ export const queryProjectUsers = async (projectId: number) => {
     return Promise.reject(err);
   }
 }
+
+export const submitAddProject = async (projectVo: SubmitAddProjectReq) => {
+  if (!projectVo) throw '新增项目信息为空'
+  try {
+    const { code, data, message } = await http<null, number>({
+      url: `/project/create`,
+      method: 'POST'
+    });
+    if (code === 0) return data;
+    throw new Error(message || 'error')
+  } catch (err) {
+    console.error("sbumitAddProject error", err);
+    return Promise.reject(err);
+  }
+}
