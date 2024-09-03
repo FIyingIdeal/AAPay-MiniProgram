@@ -29,7 +29,7 @@ const aapayRequest =
               errMsg: '服务端系统错误',
               errno: 1000
             }
-            rj(errInfo);
+            rj(errInfo.errMsg);
             fail?.(errInfo);
           }
         },

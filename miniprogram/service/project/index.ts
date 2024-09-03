@@ -29,16 +29,17 @@ export const queryProjectUsers = async (projectId: number) => {
   }
 }
 
-export const submitAddProject = async (projectVo: SubmitAddProjectReq) => {
-  if (!projectVo) throw '新增项目信息为空'
+export const submitAddProject = async (payload: SubmitAddProjectReq) => {
   try {
-    const { code, data, message } = await http<null, number>({
+    const { code, data, message } = await http<SubmitAddProjectReq, number>({
       url: `/project/create`,
-      method: 'POST'
+      method: 'POST',
+      data: payload
     });
     if (code === 0) return data;
-    throw new Error(message || 'error')
-  } catch (err) {
+    throw new Error(message || '创建项目失败')
+  } catch (err: unknown) {
+    wx.showToast({ icon: 'error', title: err instanceof Error ? err.message : JSON.stringify(err) });
     console.error("sbumitAddProject error", err);
     return Promise.reject(err);
   }

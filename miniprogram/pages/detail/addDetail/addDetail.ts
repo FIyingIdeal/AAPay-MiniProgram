@@ -1,9 +1,5 @@
 import { submitAddDetail } from '@/service/detail/index';
-
-interface KvSelectorItem {
-  id: number;
-  name: string;
-}
+import { projectDetailTypeOptions } from '@/constants/index';
 
 interface DetailShow extends SubmitAddDetailReq {
   typeName: string;
@@ -11,8 +7,8 @@ interface DetailShow extends SubmitAddDetailReq {
 }
 
 interface DataType {
-  detailTypeSelector: KvSelectorItem[];
-  settleStatusSelector: KvSelectorItem[];
+  detailTypeSelector: typeof projectDetailTypeOptions;
+  settleStatusSelector:  typeof projectDetailTypeOptions;
   detailShow: DetailShow;
 }
 
@@ -38,40 +34,7 @@ const initDetailShow = {
   settleStatusName: "待结算"
 }
 
-const initDetailTypes = [
-  {
-    id: 1,
-    name: "餐饮"
-  },
-  {
-    id: 2,
-    name: "交通"
-  },
-  {
-    id: 3,
-    name: "住宿"
-  },
-  {
-    id: 4,
-    name: "门票"
-  },
-  {
-    id: 5,
-    name: "购物"
-  },
-  {
-    id: 6,
-    name: "零食"
-  },
-  {
-    id: 7,
-    name: "医疗"
-  },
-  {
-    id: 0,
-    name: "其他"
-  }
-]
+
 
 const initSettleStatusSelector = [
   {
@@ -98,7 +61,7 @@ Page<DataType, Custom>({
    */
   data: {
     // 项目类型下拉选项
-    detailTypeSelector: initDetailTypes,
+    detailTypeSelector: projectDetailTypeOptions,
     // 结算状态下拉选项
     settleStatusSelector: initSettleStatusSelector,
     // 明细提交信息

@@ -1,42 +1,53 @@
-<!--pages/projects/addProject/addProject.wxml-->
 <view class="add-project-continer">
   <view class="add-project-form">
-  
-    <view class="section-gap">
-      <view class="section-title">项目名称</view>
-      <input class="section-input" name="name" placeholder="必填" />
-    </view>
-
-    <view class="section-gap">
-      <view class="section-title">项目描述</view>
-      <input class="section-input" name="description" placeholder="选填，最多500字" />
-    </view>
-
-    <view class="section-gap">
-      <view class="section-title">项目类型</view>
-      <view class="section-picker">
-        <picker bindchange="handleProjectTypeChange" value="{{index}}" range="{{defaultProjectTypes}}" range-key="name">
-          <view class="picker">
-             {{projectInfo.type}}
-          </view>
-        </picker>
+    <view class="form-content">
+      <view class="section-gap">
+        <view class="section-title">项目名称</view>
+        <input class="section-input" data-name="name" bindinput="handleInputChange" placeholder="必填" />
       </view>
-    </view>
 
-    <view class="section-gap">
-      <view class="section-title">项目日期</view>
-      <view class="section-picker">
-        <picker header-text="费用产生日期" mode="date">
-          <view class="picker">
-             {{}}
-          </view>
-        </picker>
+      <view class="section-gap">
+        <view class="section-title">项目描述</view>
+        <input class="section-input" data-name="description" bindinput="handleInputChange" placeholder="选填，最多500字" />
+      </view>
+
+      <view class="section-gap">
+        <view class="section-title">项目类型</view>
+        <view class="section-picker">
+          <picker bindchange="handleProjectTypeChange" value="{{index}}" range="{{projectTypeOptions}}" range-key="name">
+            <view class="picker">
+              {{projectInfo.type}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="section-gap">
+        <view class="section-title">项目起始日期</view>
+        <view class="section-picker">
+          <picker header-text="费用起始日期" mode="date" data-name="beginDate" bindchange="handleRegionChange">
+            <view class="picker">
+              {{projectInfo.beginDate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="section-gap">
+        <view class="section-title">项目结束日期</view>
+        <view class="section-picker">
+          <picker header-text="费用结束日期" mode="date" data-name="endDate" bindchange="handleRegionChange">
+            <view class="picker">
+              {{projectInfo.endDate}}
+            </view>
+          </picker>
+        </view>
       </view>
     </view>
 
     <view class="add-project-btn-area">
-      <button class="add-project-btn" type="primary" bindtap="submitAddProjectDetail">保存</button>
-      <button class="add-project-reset">重置</button>
+      <button class="add-project-reset" bind:tap="handleReset">重置</button>
+      <button class="add-project-btn" type="primary" bindtap="handleSubmit">保存</button>
     </view>
   </view>
 </view>

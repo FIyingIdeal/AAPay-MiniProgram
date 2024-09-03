@@ -1,29 +1,44 @@
 /* pages/projects/addProject/addProject.wxss */
 .add-project-continer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-bottom: 80rpx;
+  box-sizing: border-box;
 
-  .section-gap {
+  .add-project-form {
+    height: 100%;
     display: flex;
-    align-items: center;
-    height: 100rpx;
+    flex-direction: column;
 
-    .section-title {
-      margin-left: 10rpx;
-      margin-right: 15rpx;
-    }
-
-    .section-input {
+    .form-content {
       flex: 1;
-      border-bottom: 1px solid rgb(201, 194, 194); /* 只保留下边的边框 */
-      margin-right: 15rpx;
+      .section-gap {
+        display: flex;
+        align-items: center;
+        height: 100rpx;
+
+        .section-title {
+          margin-left: 10rpx;
+          margin-right: 15rpx;
+        }
+
+        .section-input {
+          flex: 1;
+          border-bottom: 1px solid rgb(201, 194, 194);
+          /* 只保留下边的边框 */
+          margin-right: 15rpx;
+        }
+      }
     }
-  }
 
-
-  .add-project-btn-area {
-    display: flex;
-    justify-content: space-between; /* 让子元素平分容器 */
-    align-items: flex-end; /* 将子元素对齐到底部 */
+    .add-project-btn-area {
+      flex-basis: content;
+      display: flex;
+      /* 让子元素平分容器 */
+      justify-content: space-between;
+      /* 将子元素对齐到底部 */
+      align-items: center;
+    }
   }
 }
