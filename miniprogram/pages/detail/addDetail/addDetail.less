@@ -1,21 +1,58 @@
 /* pages/detail/addDetail.wxss */
 .add-detail-continer {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f0f0f0;
 
-  .section-gap {
-    margin-top: 0.5rem;
-    display: flex;
+  .add-detail-form {
+    .section-gap {
+      margin-top: 0.5rem;
+      padding: 12rpx 20rpx;
+      overflow: hidden;
+      background-color: #fff;
 
-    .section-title {
-      flex-shrink: 0;
+      .section-input {
+        width: 100%;
+        display: flex;
+
+        .section-title {
+          flex-shrink: 0;
+        }
+
+        >input {
+          flex: 1;
+          color: rgb(41, 41, 41);
+          margin-left: 20rpx;
+        }
+      }
+
+      .section-picker {
+        display: flex;
+        width: 100%;
+
+        .picker-title {
+          flex-shrink: 0;
+        }
+
+        .picker-value {
+          color: rgb(41, 41, 41);
+          margin-left: 20rpx;
+        }
+      }
     }
 
-    .section-input {
-      flex: 1;
-      margin-left: 20rpx;
-    }
+    .add-detail-btn-area {
+      margin-top: 40rpx;
+      display: flex;
 
-    .section-picker {
-      flex: 1;
+      .add-detail-reset {
+        background-color: #fff;
+        font-weight: normal;
+      }
+
+      .add-detail-btn {}
     }
   }
 }

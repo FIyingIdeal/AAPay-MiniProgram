@@ -21,20 +21,22 @@ export const queryProjectDetails = async (id: number) => {
   }
 }
 
-export const submitAddDetail = async (req: SubmitAddDetailReq) => {
+export const submitAddDetail = async (req: SubmitAddDetailReq, update = false) => {
   try {
     wx.showLoading({
       title: '提交中~',
       mask: true
     });
     const { code, data, message } = await http<SubmitAddDetailReq, SubmitAddDetailData>({
-      url: '/detail/submit',
+      url: update ? '/detail/update' : '/detail/submit',
       method: 'POST',
       data: req
     });
     if (code === 0) return data;
     throw new Error(message || 'error')
   } catch (err) {
+    wx.hideLoading();
+    wx.showToast({ icon: 'error', title: typeof err === 'string' ? err : JSON.stringify(err) });
     console.error(err, 'getUserProjects error');
     return Promise.reject(err);
   } finally {

@@ -1,71 +1,58 @@
 <!--pages/detail/addDetail.wxml-->
 <view class="add-detail-continer">
   <view class="add-detail-form">
-  
     <view class="section-gap">
-      <view class="section-title">金额</view>
-      <input class="section-input" name="amount" placeholder="最多支持两位小数" />
-    </view>
-
-    <view class="section-gap">
-      <view class="section-title">标题</view>
       <view class="section-input">
-        <input bindinput="handleNameInput" name="name" placeholder="必填，最多20个字" />
+        <view class="section-title">金额</view>
+        <input bindinput="handleNameInput" type="number" value="{{detailShow.amount}}" data-name="amount" placeholder="最多支持两位小数" />
       </view>
     </view>
 
     <view class="section-gap">
-      <view class="section-title">描述</view>
       <view class="section-input">
-        <input name="remark" placeholder="非必填，最多500字" />
+        <view class="section-title">标题</view>
+        <input bindinput="handleNameInput" value="{{detailShow.name}}" data-name="name" placeholder="必填，最多20个字" />
       </view>
     </view>
 
     <view class="section-gap">
-      <view class="section-title"></view>
+      <view class="section-input">
+        <view class="section-title">描述</view>
+        <input bindinput="handleNameInput" value="{{detailShow.remark}}" data-name="remark" placeholder="非必填，最多500字" />
+      </view>
+    </view>
+
+    <picker class="section-gap" bindchange="handleDetailTypeChange" value="{{index}}" range="{{detailTypeSelector}}" range-key="name">
       <view class="section-picker">
-        <picker bindchange="handleDetailTypeChange" value="{{index}}" range="{{detailTypeSelector}}" range-key="name">
-          <view class="picker">
-            类型 {{detailShow.typeName}}
-          </view>
-        </picker>
+        <view class="picker-title">类型</view>
+        <view class="picker-value">{{detailShow.typeName}}</view>
       </view>
-    </view>
+    </picker>
 
-    <view class="section-gap">
-      <view class="section-title"></view>
+    <picker class="section-gap" bindchange="handlePayTimeChange" value="{{detailShow.payTime}}" mode="date">
       <view class="section-picker">
-        <picker header-text="费用产生日期" mode="date">
-          <view class="picker">
-            日期 {{}}
-          </view>
-        </picker>
+        <view class="picker-title">日期</view>
+        <view class="picker-value">{{detailShow.payTime}}</view>
       </view>
-    </view>
+    </picker>
 
-    <view class="section-gap">
-      <view class="section-title"></view>
+    <picker class="section-gap" bindchange="handlePayUserIdChange" value="{{index}}" range="{{payUsersSelector}}" range-key="nickname">
       <view class="section-picker">
-        <picker header-text="费用支付人">
-          <view class="picker">
-            支付人 {{}}
-          </view>
-        </picker>
+        <view class="picker-title">支付人</view>
+        <view class="picker-value">{{detailShow.payNickname}}</view>
       </view>
-    </view>
+    </picker>
 
-    <view class="section-gap">
-      <view class="section-title">结算状态</view>
-      <picker header-text="费用结算状态" value="{{index}}" range="{{settleStatusSelector}}" range-key="name" bindchange="handleSettleStatusChange">
-        <view class="picker">
-          当前选择：{{detailShow.settleStatusName}}
-        </view>
-      </picker>
-    </view>
+    <picker class="section-gap" header-text="费用结算状态" bindchange="handleSettleStatusChange" value="{{index}}" range="{{settleStatusSelector}}" range-key="name">
+      <view class="section-picker">
+        <view class="picker-title">结算状态</view>
+        <view class="picker-value">{{detailShow.settleStatusName}}</view>
+      </view>
+    </picker>
 
     <view class="add-detail-btn-area">
+      <button class="add-detail-reset" bindtap="handleReset">重置</button>
       <button class="add-detail-btn" type="primary" bindtap="submitAddDetail">保存</button>
-      <button class="add-detail-reset">重置</button>
     </view>
   </view>
 </view>

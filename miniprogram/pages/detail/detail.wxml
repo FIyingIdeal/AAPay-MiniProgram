@@ -8,7 +8,7 @@
       <view class="detail-day">2023-05-01</view>
       <!-- 明细详情 -->
       <view wx:for="{{projectdetails}}" wx:key="id" wx:for-item="detail">
-        <view class="detail-content">
+        <view class="detail-content" bind:tap="toAddOrEditDetail" data-id="{{detail.id}}">
           <!-- 明细图标 -->
           <view class="detail-icon">
             <image class="detail-icon-show" src="../../assets/images/user.png"></image>
@@ -26,7 +26,7 @@
   </view>
 
   <view class="detail-options">
-    <view class="detail-add-option" bind:tap="toAddDetail">
+    <view class="detail-add-option" bind:tap="toAddOrEditDetail">
       <text>添加项目明细</text>
     </view>
   </view>

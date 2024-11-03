@@ -13,6 +13,8 @@ interface SubmitAddDetailReq {
   amount: number;
   settleStatus: number;
   apportionType: number;
+  payTime: string;
+  payUserId: number;
 }
 
 interface SubmitAddDetailData { 
