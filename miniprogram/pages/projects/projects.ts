@@ -1,5 +1,7 @@
 import { getUserProjects } from '@/service/project/index';
 
+const app = getApp<IAppOption>();
+
 interface DataType {
   project: UserProject;
   projects: UserProject[];
@@ -31,11 +33,15 @@ Page<DataType, Custom>({
 
   },
 
+  async onShow() {
+    await app.login();
+    this.getUserProjects();
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    this.getUserProjects();
   },
 
   async getUserProjects() {

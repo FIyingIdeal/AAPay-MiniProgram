@@ -2,6 +2,7 @@ import { submitAddDetail } from '@/service/detail/index';
 import { queryProjectUsers } from '@/service/project/index';
 import { projectDetailTypeOptions } from '@/constants/index';
 
+const app = getApp<IAppOption>();
 
 interface DetailShow extends SubmitAddDetailReq {
   typeName: string;
@@ -16,7 +17,13 @@ interface DataType {
   payUsersSelector: ProjectUserItem[];
 }
 
+interface Query {
+  item?: string;
+  projectId?: string;
+}
+
 interface Custom {
+  query: Query;
   currentProjectId?: number;
   handleNameInput(e: WechatMiniprogram.Input): void;
   handlePayTimeChange(e: any): void
@@ -26,10 +33,7 @@ interface Custom {
   getEditInfo(detailInfo: ProjectDetail, usersData: ProjectUserItem[]): Partial<DetailShow>;
   submitAddDetail(): Promise<void>;
   handleReset(): Promise<void>;
-  init(query: {
-    item?: string;
-    projectId?: string;
-  }): Promise<void>;
+  init(query: Query): Promise<void>;
 }
 
 const initDetailShow: SubmitAddDetailReq = {
@@ -83,16 +87,24 @@ Page<DataType, Custom>({
       settleStatusName: "待结算"
     },
   },
+  query: {},
   currentProjectId: undefined,
 
   onLoad(query) {
-    this.init(query)
+    this.query = query;
+  },
+
+  async onShow() {
+    await app.login();
+    this.init(this.query);
   },
 
   async init(query) {
     try {
       wx.showLoading({ title: '加载中...' });
       const { item, projectId } = query;
+      console.log(item, projectId);
+
       const detailInfo: ProjectDetail = JSON.parse(decodeURIComponent(item ?? ''));
       const currentProjectId = Number(projectId) || 0;
       this.currentProjectId = currentProjectId;

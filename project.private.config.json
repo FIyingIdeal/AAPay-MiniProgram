@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/detail/addDetail/addDetail",
+          "pathName": "pages/detail/addDetail/addDetail",
+          "query": "projectId=2&item=%7B%22id%22%3A3%2C%22projectId%22%3A2%2C%22name%22%3A%22%E9%AB%98%E9%93%81%E7%A5%A8%22%2C%22remark%22%3A%22%E9%AB%98%E9%93%81%E7%A5%A8%22%2C%22type%22%3A2%2C%22amount%22%3A87100%2C%22currencyCode%22%3A%22CNY%22%2C%22apportionType%22%3A1%2C%22payUserId%22%3A1%2C%22payTime%22%3A%222023-08-19%22%2C%22settleStatus%22%3A0%2C%22createTime%22%3A%222023-09-19T00%3A30%3A47%22%2C%22creator%22%3A1%2C%22updateTime%22%3A%222023-09-19T00%3A30%3A47%22%2C%22updater%22%3A1%7D",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/projects/addProject/addProject",
           "pathName": "pages/projects/addProject/addProject",
           "query": "",

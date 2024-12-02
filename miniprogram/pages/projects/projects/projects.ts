@@ -1,4 +1,7 @@
 // pages/projects/projects/projects.ts
+
+const app = getApp<IAppOption>();
+
 Page({
 
   /**
@@ -25,8 +28,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  async onShow() {
+    await app.login();
+    // this.getUserProjects();
   },
 
   /**
