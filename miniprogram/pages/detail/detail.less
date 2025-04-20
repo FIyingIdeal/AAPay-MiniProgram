@@ -4,129 +4,124 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
-  padding-bottom: 100rpx;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
 
-  .detail-day-groups {
-    height: calc(100% - 100rpx);
-    margin-top: 0;
-    padding-top: 20rpx;
+.detail-day-groups {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
 
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 40rpx;
-    }
+.detail-day-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-    .detail-day-group {
-      display: flex;
-      flex-direction: column;
+.detail-group-scroll-view {
+  flex: 1;
+  overflow: hidden;
+}
+
+.detail-content-container {
+  padding-bottom: 120rpx;
+}
+
+.detail-day {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f5f5f5;
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  font-weight: bold;
+}
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  padding: 0 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+
+  .detail-icon {
+    height: 150rpx;
+    width: 150rpx;
+
+    .detail-icon-show {
       height: 100%;
-
-      .detail-group-scroll-view {
-        width: 100%;
-        height: 100%;
-
-        .group-list {
-          & + .group-list {
-            margin-top: 20rpx;
-          }
-
-          .detail-day {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background-color: #f5f5f5;
-            padding: 20rpx 30rpx;
-            font-size: 28rpx;
-            color: #666;
-            font-weight: bold;
-          }
-        }
-      }
-
-      .detail-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20rpx;
-        padding: 0 30rpx;
-      }
-
-      .detail-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 20rpx;
-        background-color: #fff;
-        padding: 20rpx;
-        border-radius: 10rpx;
-        box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
-
-        .detail-icon {
-          height: 150rpx;
-          width: 150rpx;
-
-          .detail-icon-show {
-            height: 100%;
-            width: 100%;
-            border-radius: 10rpx;
-          }
-        }
-
-        .detail-box {
-          flex: 1;
-          display: flex;
-          justify-content: space-between;
-          padding-right: 20rpx;
-
-          .detail-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
-            view:first-child {
-              font-size: 32rpx;
-              font-weight: bold;
-              color: #333;
-            }
-
-            view:last-child {
-              font-size: 24rpx;
-              color: #999;
-            }
-          }
-
-          .detail-amount {
-            display: flex;
-            align-items: center;
-            font-size: 36rpx;
-            font-weight: bold;
-            color: #07c160;
-          }
-        }
-      }
+      width: 100%;
+      border-radius: 10rpx;
     }
   }
 
-  .detail-options {
-    width: 100%;
-    height: 100rpx;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 9;
+  .detail-box {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20rpx;
 
-    .detail-add-option {
+    .detail-text {
       display: flex;
-      height: 100%;
-      background-color: #07c160;
-      justify-content: center;
-      align-items: center;
-      font-size: 32rpx;
-      font-weight: bold;
-      color: #fff;
+      flex-direction: column;
+      justify-content: space-around;
+
+      view:first-child {
+        font-size: 32rpx;
+        font-weight: bold;
+        color: #333;
+      }
+
+      view:last-child {
+        font-size: 24rpx;
+        color: #999;
+      }
     }
+
+    .detail-amount {
+      display: flex;
+      align-items: center;
+      font-size: 36rpx;
+      font-weight: bold;
+      color: #07c160;
+    }
+  }
+}
+
+.detail-options {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+
+  .detail-add-option {
+    display: flex;
+    height: 100%;
+    background-color: #07c160;
+    justify-content: center;
+    align-items: center;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #fff;
   }
 }
 

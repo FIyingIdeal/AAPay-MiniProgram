@@ -4,7 +4,7 @@
   <view class="detail-day-groups">
     <!-- 按日期进行明细分组 -->
     <view class="detail-day-group">
-      <scroll-view scroll-y style="width: 100%; height: 100%;" type="custom" class="detail-group-scroll-view">
+      <scroll-view scroll-y style="width: 100%; height: calc(100vh - 100rpx);" type="custom" class="detail-group-scroll-view">
         <!-- 空数据状态提示 -->
         <view wx:if="{{dataGroupedProjectDetailsArray.length === 0}}" class="empty-state">
           <view class="empty-icon">
@@ -15,8 +15,8 @@
         </view>
         
         <!-- 有数据时显示列表 -->
-        <view wx:else>
-          <view wx:for="{{dataGroupedProjectDetailsArray}}" wx:key="index" class="group-list">
+        <view wx:else class="detail-content-container">
+          <block wx:for="{{dataGroupedProjectDetailsArray}}" wx:key="index">
             <!-- 明细日期 -->
             <view class="detail-day">{{item[0]}}</view>
 
@@ -41,7 +41,7 @@
                 </view>
               </block>
             </view>
-          </view>
+          </block>
         </view>
       </scroll-view>
     </view>
