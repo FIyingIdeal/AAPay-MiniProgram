@@ -6,13 +6,15 @@ interface DetailDataType {
   projectdetails: ProjectDetail[];
   // 按日期分组的项目明细列表（前端根据 projectdetails 自行分组）
   dataGroupedProjectDetailsArray: [string, ProjectDetail[]][];
+  // 状态栏高度
+  statusBarHeight: number;
 }
 
 interface DetailCustom {
   currentProjectId?: number;
   toAddOrEditDetail(e: WechatMiniprogram.CustomEvent): void;
   queryProjectDetails(projectId: number): Promise<void>;
-  groupProjectDetailsByPayDate(projectdetails: ProjectDetail[]): Map<string, ProjectDetail[]>
+  groupProjectDetailsByPayDate(projectDetails: ProjectDetail[]): Map<string, ProjectDetail[]>;
 }
 
 Page<DetailDataType, DetailCustom>({
@@ -23,6 +25,7 @@ Page<DetailDataType, DetailCustom>({
   data: {
     projectdetails: [],
     dataGroupedProjectDetailsArray: [],
+    statusBarHeight: 0,
   },
   currentProjectId: undefined,
 
@@ -30,6 +33,12 @@ Page<DetailDataType, DetailCustom>({
    * 生命周期函数--监听页面加载
    */
   onLoad(query) {
+    // 获取状态栏高度
+    const systemInfo = wx.getSystemInfoSync();
+    this.setData({
+      statusBarHeight: systemInfo.statusBarHeight
+    });
+
     const currentProjectId = Number(query.projectId) || 0;
     this.currentProjectId = currentProjectId;
   },

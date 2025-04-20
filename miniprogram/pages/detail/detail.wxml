@@ -1,5 +1,10 @@
 <!--pages/detail/detail.wxml-->
 <view class="detail-page">
+  <!-- 顶部区域 -->
+  <view class="detail-header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="detail-title">项目明细</view>
+  </view>
+
   <!-- 项目明细天分组列表 -->
   <view class="detail-day-groups">
     <!-- 按日期进行明细分组 -->
