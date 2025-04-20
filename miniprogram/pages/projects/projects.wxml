@@ -1,41 +1,36 @@
 <!--pages/project/project.wxml-->
-<view>
+<view class="projects-container">
   <!-- 项目列表 -->
-  <view wx:for="{{projects}}" wx:key="id" wx:for-item="project">
-    <view class="project-list">
-      <view class="project" bind:tap="toProjectDetails" data-id="{{project.id}}">
-        <view class="project-info">
-          <view class="project-icon-box">
-            <image class="project-icon" src="../../assets/images/user.png"></image>
-          </view>
-          <view class="project-word-info">
-            <view class="project-basics">
-              <view class="project-title-box">
-                <text class="project-title">{{project.name}}</text>
-              </view>
-              <view class="project-type-time">
-                <view class="project-type">
-                  <text>{{project.type}}</text>
-                </view>
-                <view class="project-time">
-                  <text>{{project.beginDate}} ~ {{project.endDate}}</text>
-                </view>
-              </view>
-            </view>
-            <view class="project-remark">
-              <text>{{project.description}}</text>
-            </view>
-          </view>
+  <view class="project-list">
+    <view wx:for="{{projects}}" wx:key="id" wx:for-item="project" class="project" bind:tap="toProjectDetails" data-id="{{project.id}}">
+      <view class="project-info">
+        <view class="project-icon-box">
+          <image class="project-icon" src="../../assets/images/user.png"></image>
         </view>
-
-        <view class="project-users">
-          <image class="pu-icon" src="../../assets/images/user.png" />
-          <image class="pu-icon" src="../../assets/images/user.png" />
-          <image class="pu-icon" src="../../assets/images/user.png" />
+        <view class="project-word-info">
+          <view class="project-title-box">
+            <text class="project-title">{{project.name}}</text>
+          </view>
+          <view class="project-type-time">
+            <view class="project-type">
+              <text>{{project.type}}</text>
+            </view>
+            <view class="project-time">
+              <text>{{project.beginDate}} ~ {{project.endDate}}</text>
+            </view>
+          </view>
+          <view class="project-remark">
+            <text>{{project.description}}</text>
+          </view>
         </view>
       </view>
-    </view>
 
+      <view class="project-users">
+        <image class="pu-icon" src="../../assets/images/user.png" />
+        <image class="pu-icon" src="../../assets/images/user.png" />
+        <image class="pu-icon" src="../../assets/images/user.png" />
+      </view>
+    </view>
   </view>
   <view class="projects-list-options">
     <view class="projects-add-option" bind:tap="toAddProject">

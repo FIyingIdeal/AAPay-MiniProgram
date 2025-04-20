@@ -103,7 +103,6 @@ Page<DataType, Custom>({
     try {
       wx.showLoading({ title: '加载中...' });
       const { item, projectId } = query;
-      console.log(item, projectId);
 
       const detailInfo: ProjectDetail = JSON.parse(decodeURIComponent(item ?? ''));
       const currentProjectId = Number(projectId) || 0;

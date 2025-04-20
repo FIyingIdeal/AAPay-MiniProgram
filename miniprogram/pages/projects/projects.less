@@ -1,78 +1,118 @@
 /* pages/project/project.wxss */
+.projects-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding-bottom: 120rpx; /* 为底部按钮留出空间 */
+}
+
 .project-list {
   display: flex;
   flex-direction: column;
-
+  padding: 0 30rpx;
 
   .project {
-    background-color: rgba(203, 204, 202, 0.781);
+    background-color: #fff;
     display: flex;
-    height: 110px;
+    height: 220rpx;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 5px;
+    margin-top: 12rpx; /* 减小卡片之间的间距 */
+    padding: 20rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.12); /* 加深阴影效果 */
+    position: relative; /* 为伪元素定位做准备 */
+    border: 1rpx solid rgba(0, 0, 0, 0.05); /* 保留微妙的边框 */
+
+    /* 添加左侧彩色边框 */
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6rpx;
+      background-color: #07c160;
+      border-radius: 10rpx 0 0 10rpx;
+    }
 
     .project-info {
       display: flex;
+      flex: 1;
 
       .project-icon-box {
-        width: 70px;
-        height: 70px;
+        width: 140rpx;
+        height: 140rpx;
+        margin-right: 20rpx;
+        flex-shrink: 0;
 
         .project-icon {
           width: 100%;
           height: 100%;
+          border-radius: 10rpx;
         }
       }
 
       .project-word-info {
         display: flex;
         flex-direction: column;
+        flex: 1;
+        overflow: hidden;
 
-        .project-basics {
+        .project-title-box {
+          font-size: 32rpx;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 10rpx;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .project-type-time {
           display: flex;
-          height: 50px;
-
-          .project-title-box {
-            width: 130px;
-            font-size: 20px;
-            margin: auto;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10rpx;
+          
+          .project-type {
+            font-size: 24rpx;
+            color: #07c160;
           }
 
-          .project-type-time {
+          .project-time {
             display: flex;
-            flex-direction: column;
-            margin: 10px 25px;
-            
-            .project-type {
-              margin: auto;
-            }
-
-            .project-time {
-              display: flex;
-              flex-direction: row;
-              font-size: 10px;
-              margin: 5px auto;
-            }
+            flex-direction: row;
+            font-size: 24rpx;
+            color: #999;
           }
         }
-      }
 
-      .project-remark {
-        font-size: 10px;
-        padding: 5px 0 0 5px;
+        .project-remark {
+          font-size: 24rpx;
+          color: #666;
+          line-height: 1.4;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     }
 
     .project-users {
-      position: relative;
-      bottom: 0;
+      display: flex;
+      margin-top: 20rpx;
+      padding-top: 20rpx;
+      border-top: 1rpx solid #f5f5f5;
 
       .pu-icon {
-        height: 25px;
-        width: 25px;
-        margin: 5px 0 0 5px;
+        height: 50rpx;
+        width: 50rpx;
+        margin-right: 10rpx;
         border-radius: 50%;
+        border: 2rpx solid #fff;
+        box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
       }
     }
   }
@@ -81,7 +121,7 @@
 .projects-list-options {
   width: 100%;
   height: 100rpx;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   z-index: 9;
@@ -89,12 +129,12 @@
   .projects-add-option {
     display: flex;
     height: 100%;
-    background-color: rgb(25, 196, 53);
+    background-color: #07c160;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 32rpx;
     font-weight: bold;
+    color: #fff;
   }
-  
 }
 
