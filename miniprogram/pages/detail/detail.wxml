@@ -4,24 +4,38 @@
   <view class="detail-day-groups">
     <!-- 按日期进行明细分组 -->
     <view class="detail-day-group">
-      <!-- 明细日期 -->
-      <view class="detail-day">2023-05-01</view>
-      <!-- 明细详情 -->
-      <view wx:for="{{projectdetails}}" wx:key="id" wx:for-item="detail">
-        <view class="detail-content" bind:tap="toAddOrEditDetail" data-id="{{detail.id}}">
-          <!-- 明细图标 -->
-          <view class="detail-icon">
-            <image class="detail-icon-show" src="../../assets/images/user.png"></image>
+      <scroll-view scroll-y style="width: 100%; height: 100%;" type="custom" class="detail-group-scroll-view">
+        <!-- <sticky-section> -->
+        <sticky-section wx:for="{{dataGroupedProjectDetailsArray}}" wx:key="index" class="group-list">
+          <!-- 明细日期 -->
+          <sticky-header>
+            <view class="detail-day">{{item[0]}}</view>
+          </sticky-header>
+
+          <!-- 明细详情 -->
+          <view class="detail-list">
+            <block wx:for="{{item[1]}}" wx:key="id" wx:for-item="detail">
+              <view class="detail-content" bind:tap="toAddOrEditDetail" data-id="{{detail.id}}">
+                <!-- 明细图标 -->
+                <view class="detail-icon">
+                  <image class="detail-icon-show" src="../../assets/images/user.png"></image>
+                </view>
+
+                <view class="detail-box">
+                  <!-- 文字内容 -->
+                  <view class="detail-text">
+                    <view class="">{{detail.name}}</view>
+                    <view class="">用户A付款，参与人2人</view>
+                  </view>
+                  <!-- 明细参与者头像 -->
+                  <view class="detail-amount">￥{{detail.amount}}</view>
+                </view>
+              </view>
+            </block>
           </view>
-          <!-- 文字内容 -->
-          <view class="detail-text">
-            <view class="">{{detail.name}}</view>
-            <view class="">用户A付款，参与人2人</view>
-          </view>
-          <!-- 明细参与者头像 -->
-          <view class="detail-amount">￥{{detail.amount}}</view>
-        </view>
-      </view>
+        </sticky-section>
+        <!-- </sticky-section> -->
+      </scroll-view>
     </view>
   </view>
 

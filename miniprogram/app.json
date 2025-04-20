@@ -16,5 +16,12 @@
   "sitemapLocation": "sitemap.json",
   "resolveAlias": {
     "@/*": "/*"
-  }
+  },
+  "rendererOptions": {
+    "skyline": {
+      "disableABTest": true,
+      "defaultDisplayBlock": false
+    }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }

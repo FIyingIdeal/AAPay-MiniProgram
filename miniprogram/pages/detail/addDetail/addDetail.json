@@ -1,5 +1,7 @@
 {
   "navigationBarBackgroundColor": "#f0f0f0",
   "navigationBarTitleText": "编辑支出明细",
-  "usingComponents": {}
+  "usingComponents": {},
+  "componentFramework": "glass-easel"
+
 }

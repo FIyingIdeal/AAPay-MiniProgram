@@ -1,9 +1,9 @@
 import http from '@/utils/http/index';
 
-export const getUserProjects = async (userId: number) => {
+export const getUserProjects = async () => {
   try {
     const { code, data, message } = await http<null, GetUserProjectsData>({
-      url: `/project/list?userid=${userId}`,
+      url: '/project/list',
       method: 'GET',
     });
     if (code === 0) return data;

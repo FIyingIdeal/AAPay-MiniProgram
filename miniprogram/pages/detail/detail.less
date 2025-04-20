@@ -9,8 +9,6 @@
 
   .detail-day-groups {
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
 
     &::after {
       content: '';
@@ -22,30 +20,64 @@
     .detail-day-group {
       display: flex;
       flex-direction: column;
+      height: 100%;
+
+      .detail-group-scroll-view {
+        width: 100%;
+        height: 100%;
+
+        .group-list {
+          & + .group-list {
+            // margin-top: 20rpx;
+          }
+
+          .detail-day {
+            // position: sticky;
+          }
+        }
+      }
+
+      .detail-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20rpx;
+      }
 
       .detail-content {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        gap: 20rpx;
 
         .detail-icon {
+          height: 150rpx;
+          width: 150rpx;
+
           .detail-icon-show {
-            height: 100px;
-            width: 100px;
+            height: 100%;
+            width: 100%;
           }
         }
 
-        .detail-text {
+        .detail-box {
+          flex: 1;
           display: flex;
-          flex-direction: column;
-          justify-content: space-around;
+          justify-content: space-between;
+          padding-right: 20rpx;
+
+          .detail-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          }
+
+          .detail-amount {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+          }
         }
 
-        .detail-amount {
-          display: flex;
-          align-items: center;
-          font-size: 20px;
-        }
       }
     }
   }
@@ -67,6 +99,6 @@
       font-size: 20px;
       font-weight: bold;
     }
-    
+
   }
 }

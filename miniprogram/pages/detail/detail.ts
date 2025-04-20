@@ -2,13 +2,17 @@
 import { queryProjectDetails } from '@/service/detail/index';
 
 interface DetailDataType {
+  // 项目的明细列表
   projectdetails: ProjectDetail[];
+  // 按日期分组的项目明细列表（前端根据 projectdetails 自行分组）
+  dataGroupedProjectDetailsArray: [string, ProjectDetail[]][];
 }
 
 interface DetailCustom {
   currentProjectId?: number;
   toAddOrEditDetail(e: WechatMiniprogram.CustomEvent): void;
-  queryProjectDetails(projectId: number): Promise<void>
+  queryProjectDetails(projectId: number): Promise<void>;
+  groupProjectDetailsByPayDate(projectdetails: ProjectDetail[]): Map<string, ProjectDetail[]>
 }
 
 Page<DetailDataType, DetailCustom>({
@@ -17,7 +21,8 @@ Page<DetailDataType, DetailCustom>({
    * 页面的初始数据
    */
   data: {
-    projectdetails: []
+    projectdetails: [],
+    dataGroupedProjectDetailsArray: [],
   },
   currentProjectId: undefined,
 
@@ -39,6 +44,7 @@ Page<DetailDataType, DetailCustom>({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
+    
   },
 
   toAddOrEditDetail(e) {
@@ -55,7 +61,41 @@ Page<DetailDataType, DetailCustom>({
   },
 
   async queryProjectDetails(projectId) {
-    const data = await queryProjectDetails(projectId);
-    this.setData({ projectdetails: data })
+    const projectDetails = await queryProjectDetails(projectId);
+    const dateGroupedProjectDetails = this.groupProjectDetailsByPayDate(projectDetails);
+    const dataGroupedProjectDetailsArray = Array.from(dateGroupedProjectDetails.entries());
+    this.setData({
+      projectdetails: projectDetails,
+      dataGroupedProjectDetailsArray: dataGroupedProjectDetailsArray,
+    });
+  },
+
+  groupProjectDetailsByPayDate(projectDetails: ProjectDetail[]): Map<string, ProjectDetail[]> {
+    // 创建一个 Map，键为 string，值为 ProjectDetail[]
+    const groupedMap: Map<string, ProjectDetail[]> = new Map();
+
+    // 遍历 projectDetails 数组
+    for (const detail of projectDetails) {
+      const { payTime } = detail;
+      if (!payTime) {
+        continue;
+      }
+      const parts = payTime.split('T')
+      if (parts.length < 2) {
+        console.error("日期不包含T，无法按照日期进行分组")
+        continue;
+      }
+      const dateKey = parts[0];
+      // 如果 Map 中还没有该 dateKey 的分组，则初始化一个空数组
+      if (!groupedMap.has(dateKey)) {
+        groupedMap.set(dateKey, []);
+      }
+
+      // 将当前 ProjectDetail 添加到对应的分组中
+      groupedMap.get(dateKey)!.push(detail);
+    }
+
+    // 返回分组后的 Map
+    return groupedMap;
   }
 })

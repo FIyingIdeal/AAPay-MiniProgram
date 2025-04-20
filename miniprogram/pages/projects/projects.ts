@@ -45,7 +45,7 @@ Page<DataType, Custom>({
   },
 
   async getUserProjects() {
-    const data = await getUserProjects(1);
+    const data = await getUserProjects();
     this.setData({ projects: data });
   },
 
