@@ -1,21 +1,13 @@
 <!--pages/detail/detail.wxml-->
 <view class="detail-page">
-  <!-- 顶部区域 -->
-  <view class="detail-header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="detail-title">项目明细</view>
-  </view>
-
   <!-- 项目明细天分组列表 -->
   <view class="detail-day-groups">
     <!-- 按日期进行明细分组 -->
     <view class="detail-day-group">
       <scroll-view scroll-y style="width: 100%; height: 100%;" type="custom" class="detail-group-scroll-view">
-        <!-- <sticky-section> -->
-        <sticky-section wx:for="{{dataGroupedProjectDetailsArray}}" wx:key="index" class="group-list">
+        <view wx:for="{{dataGroupedProjectDetailsArray}}" wx:key="index" class="group-list">
           <!-- 明细日期 -->
-          <sticky-header>
-            <view class="detail-day">{{item[0]}}</view>
-          </sticky-header>
+          <view class="detail-day">{{item[0]}}</view>
 
           <!-- 明细详情 -->
           <view class="detail-list">
@@ -38,8 +30,7 @@
               </view>
             </block>
           </view>
-        </sticky-section>
-        <!-- </sticky-section> -->
+        </view>
       </scroll-view>
     </view>
   </view>

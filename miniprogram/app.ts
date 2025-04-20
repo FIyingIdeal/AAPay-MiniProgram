@@ -13,6 +13,12 @@ App<IAppOption>({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    // 从本地存储获取 token
+    const token = wx.getStorageSync('aapayToken')
+    if (token) {
+      this.globalData.token = token
+    }
   },
 
   async login() {
@@ -50,6 +56,8 @@ App<IAppOption>({
         avatarUrl
       });
       this.globalData.token = token;
+      // 持久化存储 token
+      wx.setStorageSync('aapayToken', token);
       this.globalData.init = true;
       wx.hideLoading();
     } catch (err) {

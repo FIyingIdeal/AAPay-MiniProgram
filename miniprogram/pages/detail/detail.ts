@@ -1,13 +1,11 @@
 // pages/detail/detail.ts
-import { queryProjectDetails } from '@/service/detail/index';
+import { queryProjectDetails } from '../../service/detail/index';
 
 interface DetailDataType {
   // 项目的明细列表
   projectdetails: ProjectDetail[];
   // 按日期分组的项目明细列表（前端根据 projectdetails 自行分组）
   dataGroupedProjectDetailsArray: [string, ProjectDetail[]][];
-  // 状态栏高度
-  statusBarHeight: number;
 }
 
 interface DetailCustom {
@@ -25,7 +23,6 @@ Page<DetailDataType, DetailCustom>({
   data: {
     projectdetails: [],
     dataGroupedProjectDetailsArray: [],
-    statusBarHeight: 0,
   },
   currentProjectId: undefined,
 
@@ -33,12 +30,6 @@ Page<DetailDataType, DetailCustom>({
    * 生命周期函数--监听页面加载
    */
   onLoad(query) {
-    // 获取状态栏高度
-    const systemInfo = wx.getSystemInfoSync();
-    this.setData({
-      statusBarHeight: systemInfo.statusBarHeight
-    });
-
     const currentProjectId = Number(query.projectId) || 0;
     this.currentProjectId = currentProjectId;
   },

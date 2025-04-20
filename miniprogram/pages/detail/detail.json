@@ -1,6 +1,5 @@
 {
   "usingComponents": {},
-  "componentFramework": "glass-easel",
-  "renderer": "skyline"
-
+  "navigationBarTitleText": "项目明细",
+  "navigationStyle": "default"
 }
