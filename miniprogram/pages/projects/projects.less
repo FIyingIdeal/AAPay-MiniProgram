@@ -4,12 +4,15 @@
   height: 100vh;
   position: relative;
   padding-bottom: 120rpx; /* 为底部按钮留出空间 */
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .project-list {
   display: flex;
   flex-direction: column;
   padding: 0 30rpx;
+  padding-bottom: 30rpx; /* 为底部按钮留出额外空间 */
 
   .project {
     background-color: #fff;
@@ -125,6 +128,8 @@
   left: 0;
   bottom: 0;
   z-index: 9;
+  background-color: #f8f8f8; /* 添加背景色 */
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05); /* 添加上阴影 */
 
   .projects-add-option {
     display: flex;
