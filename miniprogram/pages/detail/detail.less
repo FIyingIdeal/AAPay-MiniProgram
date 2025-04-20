@@ -129,3 +129,38 @@
     }
   }
 }
+
+/* 空数据状态样式 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  
+  .empty-icon {
+    width: 240rpx;
+    height: 240rpx;
+    margin-bottom: 40rpx;
+    
+    image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .empty-text {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20rpx;
+  }
+  
+  .empty-subtext {
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
+  }
+}
