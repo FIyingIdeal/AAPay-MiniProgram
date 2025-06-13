@@ -2,8 +2,8 @@
 <view class="projects-container">
   <!-- 项目列表 -->
   <view class="project-list">
-    <view wx:for="{{projects}}" wx:key="id" wx:for-item="project" class="project" bind:tap="toProjectDetails" data-id="{{project.id}}">
-      <view class="project-info">
+    <view wx:for="{{projects}}" wx:key="id" wx:for-item="project" class="project">
+      <view class="project-info" bind:tap="toProjectDetails" data-id="{{project.id}}">
         <view class="project-icon-box">
           <image class="project-icon" src="../../assets/images/user.png"></image>
         </view>
@@ -26,15 +26,20 @@
       </view>
 
       <view class="project-users">
-        <image class="pu-icon" src="../../assets/images/user.png" />
-        <image class="pu-icon" src="../../assets/images/user.png" />
-        <image class="pu-icon" src="../../assets/images/user.png" />
+        <block wx:for="{{project.users}}" wx:key="id" wx:for-item="user">
+          <image 
+                class="pu-icon" 
+                src="{{user.avatar || '../../assets/images/fangao.png'}}" 
+                bind:tap="showUserNickname" 
+                data-nickname="{{user.nickname}}"
+          />
+        </block>
       </view>
     </view>
   </view>
-  <view class="projects-list-options">
-    <view class="projects-add-option" bind:tap="toAddProject">
-      <text>添加新项目</text>
-    </view>
+
+  <!-- 添加浮动的圆形 + 按钮 -->
+  <view class="projects-add-option" bind:tap="toAddProject">
+    <text>+</text>
   </view>
 </view>

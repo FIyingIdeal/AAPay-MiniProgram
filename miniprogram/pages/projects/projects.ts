@@ -10,6 +10,7 @@ interface Custom {
   getUserProjects(): Promise<void>;
   toProjectDetails(e: WechatMiniprogram.BaseEvent<{}, { id: number }>): void;
   toAddProject(): void;
+  showUserNickname(e: WechatMiniprogram.CustomEvent): void;
 }
 Page<DataType, Custom>({
 
@@ -58,6 +59,18 @@ Page<DataType, Custom>({
   toAddProject() {
     wx.navigateTo({
       url: '/pages/projects/addProject/addProject'
+    });
+  },
+
+  showUserNickname(e: WechatMiniprogram.CustomEvent) {
+    const nickname = e.currentTarget.dataset.nickname;
+    if (!nickname) {
+      return;
+    }
+    wx.showToast({
+      title: nickname,
+      icon: 'none',
+      duration: 500
     });
   },
 })

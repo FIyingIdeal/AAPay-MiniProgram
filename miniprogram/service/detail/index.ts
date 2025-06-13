@@ -21,6 +21,27 @@ export const queryProjectDetails = async (id: number) => {
   }
 }
 
+export const queryProjectDetailsGroupByDate = async (id: number) => {
+  try {
+    if (!id) throw 'not id';
+    wx.showLoading({
+      title: '查询中~',
+      mask: true
+    });
+    const { code, data, message } = await http<null, QueryProjectDetailsGroupByDate>({
+      url: `/detail/pg/${id}`,
+      method: 'GET',
+    });
+    if (code === 0) return data;
+    throw new Error(message || 'error')
+  } catch (err) {
+    console.error(err, 'getUserProjects error');
+    return Promise.reject(err);
+  } finally {
+    wx.hideLoading();
+  }
+}
+
 export const submitAddDetail = async (req: SubmitAddDetailReq, update = false) => {
   try {
     wx.showLoading({

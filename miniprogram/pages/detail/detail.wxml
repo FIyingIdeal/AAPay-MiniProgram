@@ -33,7 +33,7 @@
                     <!-- 文字内容 -->
                     <view class="detail-text">
                       <view class="">{{detail.name}}</view>
-                      <view class="">用户A付款，参与人2人</view>
+                      <view class="">由用户 {{detail.payUserNickname}} 付款</view>
                     </view>
                     <!-- 明细参与者头像 -->
                     <view class="detail-amount">￥{{detail.amount}}</view>
@@ -47,10 +47,9 @@
     </view>
   </view>
 
-  <view class="detail-options">
-    <view class="detail-add-option" bind:tap="toAddOrEditDetail">
-      <text>添加项目明细</text>
-    </view>
+  <!-- 添加浮动的圆形添加按钮 -->
+  <view class="detail-add-option" bind:tap="toAddOrEditDetail">
+    <text>+</text>
   </view>
 
 </view>

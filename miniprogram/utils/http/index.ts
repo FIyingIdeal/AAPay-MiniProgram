@@ -8,7 +8,7 @@ interface Options<T, R> extends BaseRequestOptions {
 const ENV_MAP = {
   prod: 'http://www.flyingideal.com:30000/aapay',
   test: 'http://www.flyingideal.com:30000/aapay',
-  dev: 'http://192.168.31.39:30000/aapay'
+  dev: 'http://192.168.31.174:30000/aapay'
 }
 
 const host = ENV_MAP['dev'];

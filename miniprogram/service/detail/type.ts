@@ -1,8 +1,9 @@
 interface ProjectDetail extends SubmitAddDetailReq {
-
+  payDate: string;
 }
 
 type QueryProjectDetailsData = ProjectDetail[];
+type QueryProjectDetailsGroupByDate = Map<string, ProjectDetail[]>;
 
 interface SubmitAddDetailReq {
   id: number;

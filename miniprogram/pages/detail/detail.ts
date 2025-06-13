@@ -4,7 +4,7 @@ import { queryProjectDetails } from '../../service/detail/index';
 interface DetailDataType {
   // 项目的明细列表
   projectdetails: ProjectDetail[];
-  // 按日期分组的项目明细列表（前端根据 projectdetails 自行分组）
+  // 按日期分组的项目明细列表
   dataGroupedProjectDetailsArray: [string, ProjectDetail[]][];
 }
 
@@ -66,7 +66,8 @@ Page<DetailDataType, DetailCustom>({
     const dataGroupedProjectDetailsArray = Array.from(dateGroupedProjectDetails.entries());
     this.setData({
       projectdetails: projectDetails,
-      dataGroupedProjectDetailsArray: dataGroupedProjectDetailsArray,
+      // 进行类型断言，确保赋值类型匹配
+      dataGroupedProjectDetailsArray: dataGroupedProjectDetailsArray as [string, ProjectDetail[]][],
     });
   },
 
@@ -76,23 +77,16 @@ Page<DetailDataType, DetailCustom>({
 
     // 遍历 projectDetails 数组
     for (const detail of projectDetails) {
-      const { payTime } = detail;
-      if (!payTime) {
+      const { payDate } = detail;
+      if (!payDate) {
         continue;
       }
-      const parts = payTime.split('T')
-      if (parts.length < 2) {
-        console.error("日期不包含T，无法按照日期进行分组")
-        continue;
-      }
-      const dateKey = parts[0];
       // 如果 Map 中还没有该 dateKey 的分组，则初始化一个空数组
-      if (!groupedMap.has(dateKey)) {
-        groupedMap.set(dateKey, []);
+      if (!groupedMap.has(payDate)) {
+        groupedMap.set(payDate, []);
       }
-
       // 将当前 ProjectDetail 添加到对应的分组中
-      groupedMap.get(dateKey)!.push(detail);
+      groupedMap.get(payDate)!.push(detail);
     }
 
     // 返回分组后的 Map
